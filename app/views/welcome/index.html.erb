@@ -6,7 +6,24 @@
 <div class="columns">
   <div class="one-half column centered">
     <% @news.each do |item| %>
-      <%= item.title %>
+    <div class="card">
+      <div class="card-content">
+        <p class="card-header-title">
+          <%= item.title %>
+        </p>
+        <p class="mb-2">
+          <%= item.abstract %>
+        </p>
+        <p class="">
+          Published <%= local_time(item.published_date) %> <%= item.author %>
+        </p>
+        <p class="">
+          <span>
+            View on <%= link_to item.url %>
+          </span>
+        </p>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
