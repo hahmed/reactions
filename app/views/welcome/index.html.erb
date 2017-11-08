@@ -1,0 +1,12 @@
+<div class="text-center">
+  <h1 class="title mb-2">Lets get your reactions
+  <%= link_to 'Get news', news_url, method: :post, class: 'button is-link is-outlined is-small' %>
+  </h1>
+</div>
+<div class="columns">
+  <div class="one-half column centered">
+    <% @news.each do |item| %>
+      <%= item.title %>
+    <% end %>
+  </div>
+</div>
