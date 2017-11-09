@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="">
+      <%= link_to(@article.title, article_url(@article) ) %>
+    </h4>
+    <p class="mb-2">
+      <%= @article.abstract %>
+    </p>
+    <p class="small mb-0">
+      Published <%= local_time(@article.published_date) %> <%= @article.author %>
+    </p>
+    <p class="small mb-0">
+      <%= icon('link') %> <%= link_to(@article.url, @article.url, target: 'blank') %>
+    </p>
+  </div>
+</div>

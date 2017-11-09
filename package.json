@@ -1,7 +1,5 @@
 {
   "name": "reactions",
   "private": true,
-  "dependencies": {
-    "bulma": "^0.6.1"
-  }
+  "dependencies": {}
 }

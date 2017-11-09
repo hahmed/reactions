@@ -1,24 +1,36 @@
 <div class="text-center">
-  <h1 class="title mb-2">Lets get your reactions
-  <%= link_to 'Get news', articles_url, method: :post, class: 'button is-link is-outlined is-small' %>
-  </h1>
+  <h3 class="mb-4">Lets get your reactions
+  <%= link_to 'Get news', articles_url, method: :post, class: 'btn btn-outline-primary btn-sm' %>
+</h3>
 </div>
 <div class="columns">
   <div class="one-half column centered">
-    <% @articles.each do |article| %>
-    <div class="card">
-      <div class="card-content">
-        <p class="card-header-title">
-          <%= link_to(article.title, articles_url(id: article.id) ) %>
-        </p>
-        <p class="mb-2">
-          <%= article.abstract %>
-        </p>
-        <p class="">
-          Published <%= local_time(article.published_date) %> <%= article.author %>
-        </p>
+    <% if @articles.empty? %>
+      <section class="hero is-light is-medium">
+        <div class="hero-body">
+          <div class="has-text-centered">
+            <h1 class="subtitle">
+              No breaking news atm...
+            </h1>
+          </div>
+        </div>
+      </section>
+    <% else %>
+      <% @articles.each do |article| %>
+      <div class="card mb-2">
+        <div class="card-body">
+          <h4 class="">
+            <%= link_to(article.title, article_url(article) ) %>
+          </h4>
+          <p class="mb-2">
+            <%= article.abstract %>
+          </p>
+          <p class="small mb-0">
+            Published <%= local_time(article.published_date) %> <%= article.author %>
+          </p>
+        </div>
       </div>
-    </div>
+      <% end %>
     <% end %>
   </div>
 </div>

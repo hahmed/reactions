@@ -41,6 +41,17 @@ gem 'gemoji'
 # Latest news api
 gem "times_wire", "~> 0.9.0"
 
+# Jquery is required for bootstrap
+gem 'jquery-rails'
+# Style and fonts
+gem 'bootstrap', '~> 4.0.0.beta'
+gem 'font-awesome-sass', '~> 4.7.0'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

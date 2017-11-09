@@ -12,4 +12,9 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+//= require local-time
+//= require activestorage
+//= require jquery
+//= require tether
+//= require popper
+//= require bootstrap
