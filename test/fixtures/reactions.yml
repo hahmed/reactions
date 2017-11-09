@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  article: one
+  type: 'emoji'
+  content: 'hooray'
+
+two:
+  article: one
+  type: 'text'
+  content: MyText
