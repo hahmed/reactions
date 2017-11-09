@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 2017_11_08_141336) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "news", force: :cascade do |t|
-    t.string "section"
+  create_table "articles", force: :cascade do |t|
     t.string "title", null: false
+    t.string "section"
     t.text "abstract"
     t.string "url", null: false
     t.string "source"

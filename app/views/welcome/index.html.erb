@@ -1,26 +1,21 @@
 <div class="text-center">
   <h1 class="title mb-2">Lets get your reactions
-  <%= link_to 'Get news', news_url, method: :post, class: 'button is-link is-outlined is-small' %>
+  <%= link_to 'Get news', articles_url, method: :post, class: 'button is-link is-outlined is-small' %>
   </h1>
 </div>
 <div class="columns">
   <div class="one-half column centered">
-    <% @news.each do |item| %>
+    <% @articles.each do |article| %>
     <div class="card">
       <div class="card-content">
         <p class="card-header-title">
-          <%= item.title %>
+          <%= link_to(article.title, articles_url(id: article.id) ) %>
         </p>
         <p class="mb-2">
-          <%= item.abstract %>
+          <%= article.abstract %>
         </p>
         <p class="">
-          Published <%= local_time(item.published_date) %> <%= item.author %>
-        </p>
-        <p class="">
-          <span>
-            View on <%= link_to item.url %>
-          </span>
+          Published <%= local_time(article.published_date) %> <%= article.author %>
         </p>
       </div>
     </div>
