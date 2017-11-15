@@ -1,3 +1,9 @@
+<div id="notice" class="alert alert-warning alert-dismissible fade show" role="alert" style="display:none;">
+  <button type="button" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="message">Error saving your reaction.</div>
+</div>
 <div class="card">
   <div class="card-body">
     <h4 class=""><%= @article.title %></h4>
@@ -12,6 +18,20 @@
     </p>
   </div>
 </div>
+<% if @article.reactions.emojis.any? %>
+  <div class="mt-1 mb-3">
+    <% @article.reactions.emojis.each do |reaction| %>
+      <%= reaction.content %>
+    <% end %>
+  </div>
+<% end %>
+<div class="pb-5" id="comments_list">
+<% if @article.reactions.comments.any? %>
+    <% @article.reactions.comments.each do |reaction| %>
+      <%= render reaction %>
+    <% end %>
+<% end %>
+</div>
 <% content_for(:footer) do %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom navbar-light bg-light app-navbar">
   <a class="navbar-brand" href="/">Reactions</a>
@@ -21,40 +41,52 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">😀</a>
+        <%= button_to '😀', react_article_reactions_url(@article), params: { reaction: { content: 'happy' } },
+          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">😂</a>
+        <%= button_to '😂', react_article_reactions_url(@article), params: { reaction: { content: 'lol' } },
+          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">😒</a>
+        <%= button_to '😒', react_article_reactions_url(@article), params: { reaction: { content: 'unamused' } },
+          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">😱</a>
+        <%= button_to '😱', react_article_reactions_url(@article), params: { reaction: { content: 'fear' } },
+          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">👋</a>
+        <%= button_to '👋', react_article_reactions_url(@article), params: { reaction: { content: 'wave' } },
+          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">🙏</a>
+        <%= button_to '🙏', react_article_reactions_url(@article), params: { reaction: { content: 'prayer' } },
+          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">👍</a>
+        <%= button_to '👍', react_article_reactions_url(@article), params: { reaction: { content: 'thumbs_up' } },
+          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">👎</a>
+        <%= button_to '👎', react_article_reactions_url(@article), params: { reaction: { content: 'thumbs_down' } },
+          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">❤️</a>
+        <%= button_to '❤️', react_article_reactions_url(@article), params: { reaction: { content: 'heart' } },
+          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">🎉</a>
+        <%= button_to '🎉', react_article_reactions_url(@article), params: { reaction: { content: 'hooray' } },
+          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Your reaction..." aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
-    </form>
+    <%= form_with(url: article_reactions_path(@article), scope: :reaction,
+      class: 'form-inline my-2 my-lg-0') do |form| %>
+      <%= form.text_field :content, class: 'form-control mr-sm-2',
+        placeholder: 'Your reaction...', id: 'comment-input' %>
+      <%= form.submit 'Submit', class: 'btn btn-outline-success my-2 my-sm-0' %>
+    <% end %>
   </div>
 </nav>
 <% end %>

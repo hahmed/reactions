@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  section: MyString
-  title: MyString
+  section: 'Soccer'
+  title: 'Messi scores double hatrick #WC2020'
   abstract: MyText
   url: MyString
   source: MyString
@@ -10,8 +10,8 @@ one:
   author: MyString
 
 two:
-  section: MyString
-  title: MyString
+  section: 'Tech'
+  title: 'VR takes over the world!!!'
   abstract: MyText
   url: MyString
   source: MyString

@@ -18,3 +18,4 @@
 //= require tether
 //= require popper
 //= require bootstrap
+//= require reactions

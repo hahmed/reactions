@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2017_11_09_142426) do
 
   create_table "reactions", force: :cascade do |t|
     t.bigint "article_id", null: false
-    t.string "type"
+    t.string "reaction_type"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -2,10 +2,10 @@
 
 one:
   article: one
-  type: 'emoji'
+  reaction_type: 'emoji'
   content: 'hooray'
 
 two:
   article: one
-  type: 'text'
-  content: MyText
+  reaction_type: 'text'
+  content: 'Amazing!!!'
