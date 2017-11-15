@@ -4,7 +4,7 @@
   </button>
   <div class="message">Error saving your reaction.</div>
 </div>
-<div class="card">
+<div class="card mb-4">
   <div class="card-body">
     <h4 class=""><%= @article.title %></h4>
     <p class="mb-2">
@@ -18,14 +18,12 @@
     </p>
   </div>
 </div>
-<% if @article.reactions.emojis.any? %>
-  <div class="mt-1 mb-3">
-    <% @article.reactions.emojis.each do |reaction| %>
-      <%= reaction.content %>
-    <% end %>
-  </div>
-<% end %>
-<div class="mt-2 pb-5" id="comments_list">
+<div class="mb-4">
+  <% if @article.reactions.emojis.any? %>
+    <%= render 'reactions/remoji', emojis: @article.reactions.emojis %>
+  <% end %>
+</div>
+<div class="pb-5" id="comments_list">
 <% if @article.reactions.comments.any? %>
     <% @article.reactions.comments.each do |reaction| %>
       <%= render reaction %>
