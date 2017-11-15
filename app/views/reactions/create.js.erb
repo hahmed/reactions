@@ -1,5 +1,6 @@
 <% if @reaction.errors.any? %>
   $('#notice').show();
+  $("#comment-input").focus();
 <% else %>
   // add comment to comments list
   $("<%= escape_javascript(render @reaction) %>").prependTo("#comments_list");
