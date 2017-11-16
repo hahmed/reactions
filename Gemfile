@@ -52,6 +52,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'rubocop', require: false
+gem 'coveralls', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
