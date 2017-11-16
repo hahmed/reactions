@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class ReactionTest < ActiveSupport::TestCase
+  test "should report error" do
+    assert_raises(NameError) do
+      some_undefined_variable
+    end
+  end
+  
   test "should not save empty reaction" do
     reaction = Reaction.new
     assert_not reaction.save
