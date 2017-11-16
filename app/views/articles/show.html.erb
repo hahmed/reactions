@@ -5,6 +5,30 @@
   <div class="message">Error saving your reaction.</div>
 </div>
 <div class="card mb-4">
+  <div class="card-header d-flex">
+    <%= form_with(url: article_reactions_path(@article), scope: :reaction,
+      class: 'form-inline my-2 mr-auto') do |form| %>
+      <%= form.text_field :content, class: 'form-control mr-sm-2',
+        placeholder: 'Your reaction...', id: 'comment-input' %>
+      <%= form.submit 'Submit', class: 'btn btn-outline-success my-2 my-sm-0' %>
+    <% end %>
+      <%= button_to '👍', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'thumbs_up' } },
+        method: :patch, class: 'btn btn-outline-secondary' %>
+      <%= button_to '👎', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'thumbs_down' } },
+        method: :patch, class: 'btn btn-outline-secondary' %>
+      <%= button_to '😂', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'lol' } },
+        method: :patch, class: 'btn btn-outline-secondary' %>
+      <%= button_to '😱', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'fear' } },
+        method: :patch, class: 'btn btn-outline-secondary' %>
+      <%= button_to '👋', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'wave' } },
+        method: :patch, class: 'btn btn-outline-secondary' %>
+      <%= button_to '🙏', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'prayer' } },
+        method: :patch, class: 'btn btn-outline-secondary' %>
+      <%= button_to '❤️', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'heart' } },
+        method: :patch, class: 'btn btn-outline-secondary' %>
+      <%= button_to '🎉', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'hooray' } },
+        method: :patch, class: 'btn btn-outline-secondary' %>
+  </div>
   <div class="card-body">
     <h4 class=""><%= @article.title %></h4>
     <p class="mb-2">
@@ -28,61 +52,3 @@
     <% end %>
 <% end %>
 </div>
-<% content_for(:header) do %>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-light bg-light app-navbar">
-  <a class="navbar-brand" href="/">Reactions</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= button_to '😀', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'happy' } },
-          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
-      </li>
-      <li class="nav-item">
-        <%= button_to '😂', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'lol' } },
-          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
-      </li>
-      <li class="nav-item">
-        <%= button_to '😒', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'unamused' } },
-          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
-      </li>
-      <li class="nav-item">
-        <%= button_to '😱', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'fear' } },
-          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
-      </li>
-      <li class="nav-item">
-        <%= button_to '👋', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'wave' } },
-          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
-      </li>
-      <li class="nav-item">
-        <%= button_to '🙏', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'prayer' } },
-          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
-      </li>
-      <li class="nav-item">
-        <%= button_to '👍', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'thumbs_up' } },
-          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
-      </li>
-      <li class="nav-item">
-        <%= button_to '👎', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'thumbs_down' } },
-          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
-      </li>
-      <li class="nav-item">
-        <%= button_to '❤️', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'heart' } },
-          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
-      </li>
-      <li class="nav-item">
-        <%= button_to '🎉', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'hooray' } },
-          method: :patch, class: 'nav-link btn btn-outline-secondary' %>
-      </li>
-    </ul>
-    <%= form_with(url: article_reactions_path(@article), scope: :reaction,
-      class: 'form-inline my-2 my-lg-0') do |form| %>
-      <%= form.text_field :content, class: 'form-control mr-sm-2',
-        placeholder: 'Your reaction...', id: 'comment-input' %>
-      <%= form.submit 'Submit', class: 'btn btn-outline-success my-2 my-sm-0' %>
-    <% end %>
-  </div>
-</nav>
-<% end %>

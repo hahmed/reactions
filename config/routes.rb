@@ -5,6 +5,9 @@ Rails.application.routes.draw do
         patch :react
       end
     end
+    collection do
+      get :search
+    end
   end
 
   get 'welcome' => 'welcome#index'

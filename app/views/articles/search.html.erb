@@ -1,6 +1,5 @@
 <div class="text-center">
-  <h3 class="mb-4">Lets get your reactions
-  <%= link_to 'Get news', articles_url, method: :post, class: 'btn btn-outline-primary btn-sm' %>
+  <h3 class="mb-4"> Searching <em><%= @search %></em>
 </h3>
 </div>
 <div class="columns">
@@ -8,7 +7,7 @@
     <% if @articles.empty? %>
       <div class="card card-body">
         <h2 class="text-center">
-          No breaking news atm...
+          No articles found with your search criteria
         </h2>
       </div>
     <% else %>

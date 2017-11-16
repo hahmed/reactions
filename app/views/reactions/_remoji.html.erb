@@ -1,12 +1,10 @@
 <div class="text-center">
-  <%= emoji_reaction('happy','😀', emojis.where(content: 'happy').count ) %>
+  <%= emoji_reaction('thumbs_up','👍', emojis.where(content: 'thumbs_up').count ) %>
+  <%= emoji_reaction('thumbs_down','👎', emojis.where(content: 'thumbs_down').count ) %>
   <%= emoji_reaction('lol','😂', emojis.where(content: 'lol').count ) %>
-  <%= emoji_reaction('unamused','😒', emojis.where(content: 'unamused').count ) %>
   <%= emoji_reaction('fear','😱', emojis.where(content: 'fear').count ) %>
   <%= emoji_reaction('wave','👋', emojis.where(content: 'wave').count ) %>
   <%= emoji_reaction('prayer','🙏', emojis.where(content: 'prayer').count ) %>
-  <%= emoji_reaction('thumbs_up','👍', emojis.where(content: 'thumbs_up').count ) %>
-  <%= emoji_reaction('thumbs_down','👎', emojis.where(content: 'thumbs_down').count ) %>
   <%= emoji_reaction('heart','❤️', emojis.where(content: 'heart').count ) %>
   <%= emoji_reaction('hooray','🎉', emojis.where(content: 'hooray').count ) %>
 </div>
