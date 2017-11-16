@@ -1,7 +1,8 @@
 <% if @reaction.errors.any? %>
-  // $('#new-card-form').html("< escape_javascript(render partial: 'form')>");
-  // flash message, error saving reaction!
+  $('#notice').show();
 <% else %>
   // increment reaction
-  // $("< escape_javascript(render @reaction) >").appendTo("#reactions");
+  var e = $("#emoji_<%= @reaction.content %>_count");
+  var count = parseInt(e.html());
+  $("#emoji_<%= @reaction.content %>_count").html(count + 1);
 <% end %>

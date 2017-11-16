@@ -1,32 +1,12 @@
 <div class="text-center">
-  <% if emojis.where(content: 'happy').any? %>
-    <span class="card-link text-muted">😀 <%= emojis.where(content: 'happy').count %></span>
-  <% end %>
-  <% if emojis.where(content: 'lol').any? %>
-    <span class="card-link text-muted">😂 <%= emojis.where(content: 'lol').count %></span>
-  <% end %>
-  <% if emojis.where(content: 'unamused').any? %>
-    <span class="card-link text-muted">😒 <%= emojis.where(content: 'unamused').count %></span>
-  <% end %>
-  <% if emojis.where(content: 'fear').any? %>
-    <span class="card-link text-muted">😱 <%= emojis.where(content: 'fear').count %></span>
-  <% end %>
-  <% if emojis.where(content: 'wave').any? %>
-    <span class="card-link text-muted">👋 <%= emojis.where(content: 'wave').count %></span>
-  <% end %>
-  <% if emojis.where(content: 'prayer').any? %>
-    <span class="card-link text-muted">🙏 <%= emojis.where(content: 'prayer').count %></span>
-  <% end %>
-  <% if emojis.where(content: 'thumbs_up').any? %>
-    <span class="card-link text-muted">👍 <%= emojis.where(content: 'thumbs_up').count %></span>
-  <% end %>
-  <% if emojis.where(content: 'thumbs_down').any? %>
-    <span class="card-link text-muted">👎 <%= emojis.where(content: 'thumbs_down').count %></span>
-  <% end %>
-  <% if emojis.where(content: 'heart').any? %>
-    <span class="card-link text-muted">❤️ <%= emojis.where(content: 'heart').count %></span>
-  <% end %>
-  <% if emojis.where(content: 'hooray').any? %>
-    <span class="card-link text-muted">🎉 <%= emojis.where(content: 'hooray').count %></span>
-  <% end %>
+  <%= emoji_reaction('happy','😀', emojis.where(content: 'happy').count ) %>
+  <%= emoji_reaction('lol','😂', emojis.where(content: 'lol').count ) %>
+  <%= emoji_reaction('unamused','😒', emojis.where(content: 'unamused').count ) %>
+  <%= emoji_reaction('fear','😱', emojis.where(content: 'fear').count ) %>
+  <%= emoji_reaction('wave','👋', emojis.where(content: 'wave').count ) %>
+  <%= emoji_reaction('prayer','🙏', emojis.where(content: 'prayer').count ) %>
+  <%= emoji_reaction('thumbs_up','👍', emojis.where(content: 'thumbs_up').count ) %>
+  <%= emoji_reaction('thumbs_down','👎', emojis.where(content: 'thumbs_down').count ) %>
+  <%= emoji_reaction('heart','❤️', emojis.where(content: 'heart').count ) %>
+  <%= emoji_reaction('hooray','🎉', emojis.where(content: 'hooray').count ) %>
 </div>

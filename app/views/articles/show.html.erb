@@ -18,10 +18,8 @@
     </p>
   </div>
 </div>
-<div class="mb-4">
-  <% if @article.reactions.emojis.any? %>
-    <%= render 'reactions/remoji', emojis: @article.reactions.emojis %>
-  <% end %>
+<div class="mb-4" id="reactions_list">
+  <%= render 'reactions/remoji', emojis: @article.reactions.emojis if @article.reactions.emojis.any? %>
 </div>
 <div class="pb-5" id="comments_list">
 <% if @article.reactions.comments.any? %>
@@ -39,43 +37,43 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= button_to '😀', react_article_reactions_url(@article), params: { reaction: { content: 'happy' } },
+        <%= button_to '😀', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'happy' } },
           method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <%= button_to '😂', react_article_reactions_url(@article), params: { reaction: { content: 'lol' } },
+        <%= button_to '😂', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'lol' } },
           method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <%= button_to '😒', react_article_reactions_url(@article), params: { reaction: { content: 'unamused' } },
+        <%= button_to '😒', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'unamused' } },
           method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <%= button_to '😱', react_article_reactions_url(@article), params: { reaction: { content: 'fear' } },
+        <%= button_to '😱', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'fear' } },
           method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <%= button_to '👋', react_article_reactions_url(@article), params: { reaction: { content: 'wave' } },
+        <%= button_to '👋', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'wave' } },
           method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <%= button_to '🙏', react_article_reactions_url(@article), params: { reaction: { content: 'prayer' } },
+        <%= button_to '🙏', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'prayer' } },
           method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <%= button_to '👍', react_article_reactions_url(@article), params: { reaction: { content: 'thumbs_up' } },
+        <%= button_to '👍', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'thumbs_up' } },
           method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <%= button_to '👎', react_article_reactions_url(@article), params: { reaction: { content: 'thumbs_down' } },
+        <%= button_to '👎', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'thumbs_down' } },
           method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <%= button_to '❤️', react_article_reactions_url(@article), params: { reaction: { content: 'heart' } },
+        <%= button_to '❤️', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'heart' } },
           method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
       <li class="nav-item">
-        <%= button_to '🎉', react_article_reactions_url(@article), params: { reaction: { content: 'hooray' } },
+        <%= button_to '🎉', react_article_reactions_url(@article), remote: true, params: { reaction: { content: 'hooray' } },
           method: :patch, class: 'nav-link btn btn-outline-secondary' %>
       </li>
     </ul>
