@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :articles, only: [:create, :show] do
+  resources :articles, only: [:index, :show] do
     resources :reactions, only: [:create] do
       collection do
         patch :react
@@ -10,6 +10,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'welcome' => 'welcome#index'
-  root 'welcome#index'
+  root 'articles#index'
 end

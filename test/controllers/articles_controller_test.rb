@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
+  test "should get index" do
+    get root_url
+    assert_response :success
+  end
+
   test "should get article" do
     article = articles(:one)
     get article_url(article)
