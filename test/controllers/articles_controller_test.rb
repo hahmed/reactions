@@ -4,6 +4,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get root_url
     assert_response :success
+    assert_equal "index", @controller.action_name
   end
 
   test "should get article" do
