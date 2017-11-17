@@ -52,7 +52,8 @@ source 'https://rails-assets.org' do
 end
 
 gem 'rubocop', require: false
-gem 'coveralls', require: false
+gem 'coveralls', require: false, group: :test
+gem 'simplecov', require: false, group: :test
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
