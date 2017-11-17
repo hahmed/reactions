@@ -22,7 +22,9 @@ class ReactionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should fail to create reaction using SJR" do
-    patch react_article_reactions_url(@article), xhr: true, params: { reaction: { content: '' }  }
+    assert_no_difference('Reaction.count') do
+      patch react_article_reactions_url(@article), xhr: true, params: { reaction: { content: '' }  }
+    end
 
     assert_response :success
     assert_equal "text/javascript", @response.content_type
@@ -57,7 +59,9 @@ class ReactionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should fail to create comment using SJR" do
-    post article_reactions_url(@article), xhr: true, params: { reaction: { content: '' }  }
+    assert_no_difference('Reaction.count') do
+      post article_reactions_url(@article), xhr: true, params: { reaction: { content: '' }  }
+    end
 
     assert_response :success
     assert_equal "text/javascript", @response.content_type
